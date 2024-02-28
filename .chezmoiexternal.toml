@@ -1,0 +1,20 @@
+[".oh-my-zsh"]
+    type = "git-repo"
+    url = "https://github.com/ohmyzsh/ohmyzsh.git"
+    exact = true
+[".oh-my-zsh/custom/plugins/fzf-tab"]
+    type = "git-repo"
+    url = "https://github.com/Aloxaf/fzf-tab"
+    exact = true
+[".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+    type = "git-repo"
+    url = "https://github.com/zsh-users/zsh-autosuggestions.git"
+    exact = true
+[".oh-my-zsh/custom/plugins/zsh-completions"]
+    type = "git-repo"
+    url = "https://github.com/zsh-users/zsh-completions.git"
+    exact = true
+[".oh-my-zsh/custom/plugins/autoupdate"]
+    type = "git-repo"
+    url = "https://github.com/TamCore/autoupdate-oh-my-zsh-plugins.git"
+    exact = true

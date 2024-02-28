@@ -1,0 +1,12 @@
+# BEGIN_KITTY_THEME
+# 1984 Dark
+include current-theme.conf
+# END_KITTY_THEME
+
+# I prefer this font and I admit my eyesight is trash
+font_family IntoneMono Nerd Font Mono
+font_size 16
+
+macos_option_as_alt left
+
+copy_on_select yes
