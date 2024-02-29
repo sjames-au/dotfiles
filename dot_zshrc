@@ -77,21 +77,22 @@ alias vim=nvim
 
 export EDITOR=nvim
 #export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-  autoload -Uz compinit
-  compinit
- fi
+# if type brew &>/dev/null
+# then
+#   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+#   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+#   autoload -Uz compinit
+#   compinit
+#  fi
 eval "$(direnv hook zsh)"
 eval "$(op completion zsh)"; compdef _op op
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
+# source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
 source /opt/homebrew/opt/asdf/libexec/asdf.sh
 eval "$(starship init zsh)"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/stewart/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
