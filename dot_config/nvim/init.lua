@@ -76,7 +76,27 @@ require('lazy').setup({
   'tpope/vim-rails',
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-
+-- Lazy.nvim
+{
+  'xvzc/chezmoi.nvim',
+  dependencies = { 'nvim-lua/plenary.nvim' },
+  config = function()
+    require("chezmoi").setup {
+      edit = {
+        watch = false,
+        force = true,
+      },
+      notification = {
+        on_open = true,
+        on_apply = true,
+        on_watch = false,
+      },
+      telescope = {
+        select = { "<CR>" },
+      },
+    }    -- your configurations
+  end
+},
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -596,6 +616,7 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  ansiblels = {},
   ruby_ls = {},
 
   lua_ls = {
