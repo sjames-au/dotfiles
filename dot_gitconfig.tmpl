@@ -1,0 +1,20 @@
+[user]
+	name = "{{ .name }}"
+	email = "{{ .email }}"
+	signingkey = "{{ .sign_key }}"
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[alias]
+	co = checkout
+	cob = checkout -b
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign

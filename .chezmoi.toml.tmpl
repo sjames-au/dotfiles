@@ -1,1 +1,10 @@
 mode = "symlink"
+
+{{- $name := promptString "Git username for the author/committer" }}
+{{- $email := promptString "Git email address for the author/committer" }}
+{{- $op_sign_path := promptString "Git OP signing key path" }}
+
+[data]
+    email = "{{ $email }}"
+    name = "{{ $name }}"
+    sign_key = "{{ onepasswordRead $op_sign_path }}"
