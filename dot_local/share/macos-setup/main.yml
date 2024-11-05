@@ -1,0 +1,10 @@
+---
+- name: My MacOS Setup
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  tasks:
+  - name: Import macOS settings tasks
+    import_tasks: macos/main.yml
+  - name: Import software configuration tasks
+    import_tasks: software/main.yml
