@@ -1,7 +1,7 @@
 [user]
-	name = "{{ .name }}"
-	email = "{{ .email }}"
-	signingkey = "{{ .sign_key }}"
+	name = "Stewart James"
+	email = ""
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEutY2Oj+WjayUcBcY7mWL/15g8RIBSVfvzCgqipxNB3
 [commit]
 	gpgsign = true
 [init]
