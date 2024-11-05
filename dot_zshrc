@@ -33,8 +33,6 @@ alias vim=nvim
 export EDITOR=nvim
 
 # Development tooling
-source /opt/homebrew/opt/asdf/libexec/asdf.sh
-eval "$(direnv hook zsh)"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 # Prompt 
