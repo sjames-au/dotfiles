@@ -1,35 +1,38 @@
 ---
 # Apple Mail settings
-# - name: Mail - Disable Reply Animations
-#   osx_defaults:
-#     domain: com.apple.mail
-#     key: DisableReplyAnimations
-#     type: bool
-#     value: true
-#     state: present
+- name: Mail - Disable Reply Animations
+  community.general.osx_defaults:
+    domain: com.apple.mail
+    key: DisableReplyAnimations
+    type: bool
+    value: true
+    state: present
+- name: Mail - Disable Send Animations
+  community.general.osx_defaults:
+    domain: com.apple.mail
+    key: DisableSendAnimations
+    type: bool
+    value: true
+    state: present
 
-# - name: Mail - Disable Send Animations
-#   osx_defaults:
-#     domain: com.apple.mail
-#     key: DisableSendAnimations
-#     type: bool
-#     value: true
-#     state: present
+- name: Mail - Copy email addresses as foo@example.com instead of Foo Bar <foo@example.com>
+  community.general.osx_defaults:
+    domain: com.apple.mail
+    key: AddressesIncludeNameOnPasteboard
+    type: bool
+    value: false
+    state: present
 
-# - name: Mail - Copy email addresses as foo@example.com instead of Foo Bar <foo@example.com>
-#   osx_defaults:
-#     domain: com.apple.mail
-#     key: AddressesIncludeNameOnPasteboard
-#     type: bool
-#     value: false
-#     state: present
+# Ansible osx_defaults module does not support dict-add, so we use the command instead
+# Check if the keyboard shortcut ⌘ + Enter to send an email in Mail.app is already set
+- name: Mail - Get existing keyboard shortcuts
+  command: defaults read com.apple.mail NSUserKeyEquivalents
+  register: mail_shortcuts
+  ignore_errors: yes
+  failed_when: false
+  changed_when: false
 
-# TODO
-# Needs feature at https://github.com/ansible-collections/community.general/pull/3420
-#- name: Mail - Add the keyboard shortcut ⌘ + Enter to send an email in Mail.app
-#  osx_defaults:
-#    domain: com.apple.mail
-#    key: NSUserKeyEquivalents
-#    type: dict
-#    value: {"Send", "@\\U21a9"}
-#    state: present
+# Add the keyboard shortcut ⌘ + Enter to send an email in Mail.app if not already set
+- name: Mail - Add keyboard shortcut ⌘ + Enter to send an email in Mail.app
+  command: defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" "@\\U21a9"
+  when: "'Send' not in mail_shortcuts.stdout"

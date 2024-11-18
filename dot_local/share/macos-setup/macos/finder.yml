@@ -1,4 +1,3 @@
-
 ###############################################################################
 # Finder                                                                      #
 ###############################################################################
@@ -108,7 +107,7 @@
     value: SCcf
     state: present
 
-- name: Finder - Display full POSIX path as Finder window title
+- name: Finder - Disable extension change warning
   community.general.osx_defaults:
     domain: com.apple.finder
     key: FXEnableExtensionChangeWarning
@@ -197,7 +196,7 @@
     state: present
 
 - name: Unhide the ~/Library folder
-  shell: 'chflags nohidden ~/Library'
+  shell: "chflags nohidden ~/Library"
   changed_when: false
 
 - ansible.builtin.include_tasks: restart_process.yml

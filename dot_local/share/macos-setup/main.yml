@@ -4,7 +4,15 @@
   connection: local
   gather_facts: true
   tasks:
-  - name: Import macOS settings tasks
-    import_tasks: macos/main.yml
-  - name: Import software configuration tasks
-    import_tasks: software/main.yml
+    - name: Check if become is working
+      command: whoami
+      become: yes
+      register: become_check
+      ignore_errors: yes
+      failed_when: false
+      changed_when: false
+    - name: Set variable for become usage
+      set_fact:
+        become_active: "{{ become_check.stdout | default('') == 'root' }}"
+    - name: Import macOS settings tasks
+      import_tasks: macos/main.yml

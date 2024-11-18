@@ -10,6 +10,13 @@ Follow these steps to set up your macOS environment using these dotfiles.
 
 None: all required tools are installed as part of the setup process.
 
+### Manual Terminal Configuration
+
+- Add Terminal.app to Full Disk Access in Settings > Privacy & Security > Full Disk Access
+- Add Terminal.app to App Management in Settings > Privacy & Security > App Management
+
+Once Kitty is installed, you will also need to add the above permissions for Kitty.
+
 ### Installation
 
 1. **Install chezmoi and initialize with this repository:**
@@ -17,7 +24,7 @@ None: all required tools are installed as part of the setup process.
    ```sh
    cd ~
    sh -c "$(curl -fsLS get.chezmoi.io)"
-   ~/bin/chezmoi init --apply https://github.com/your_username/dotfiles.gi
+   ~/bin/chezmoi init --apply https://github.com/your_username/dotfiles.git
    ```
 
 ### Configuration Details

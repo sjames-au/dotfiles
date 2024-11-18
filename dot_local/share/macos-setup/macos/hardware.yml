@@ -53,30 +53,29 @@
     value: 3
     state: present
 
-# - name: Use scroll gesture with modifier key to zoom
-#   community.general.osx_defaults:
-#     domain: com.apple.universalaccess
-#     key: closeViewScrollWheelToggle
-#     type: int
-#     value: 1
-#     state: present
-#   become: yes
+- name: Use scroll gesture with modifier key to zoom [Requires full disk access]
+  community.general.osx_defaults:
+    domain: com.apple.universalaccess
+    key: closeViewScrollWheelToggle
+    type: bool
+    value: true
+    state: present
 
-# - name: Set ctrl (^) to modifier key for zoom
-#   community.general.osx_defaults:
-#     domain: com.apple.universalaccess
-#     key: HIDScrollZoomModifierMask
-#     type: int
-#     value: 262144
-#     state: present
+- name: Set ctrl (^) to modifier key for zoom [Requires full disk access]
+  community.general.osx_defaults:
+    domain: com.apple.universalaccess
+    key: HIDScrollZoomModifierMask
+    type: int
+    value: 262144
+    state: present
 
-# - name: Follow the keyboard focus while zoomed in
-#   community.general.osx_defaults:
-#     domain: com.apple.universalaccess
-#     key: closeViewZoomFollowsFocus
-#     type: bool
-#     value: true
-#     state: present
+- name: Follow the keyboard focus while zoomed in [Requires full disk access]
+  community.general.osx_defaults:
+    domain: com.apple.universalaccess
+    key: closeViewZoomFollowsFocus
+    type: bool
+    value: true
+    state: present
 
 - name: Disable press-and-hold for keys in favor of key repeat
   community.general.osx_defaults:
@@ -154,7 +153,7 @@
   shell: 'systemsetup -settimezone "Australia/Melbourne" > /dev/null'
   changed_when: false
   become: yes
-  when: ansible_become_password is defined
+  when: become_active
 
 - name: Enable auto-correct
   community.general.osx_defaults:

@@ -18,24 +18,19 @@
     value: 0
     state: present
 
-# As I use tilde for home location, we get the current valye ourselves
-- name: Read screenshots save location
-  community.general.osx_defaults:
-    domain: com.apple.screencapture
-    key: location
-    state: list
-  register: scl
+- name: Ensure the Downloads/ScreenCaptures directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/Downloads/ScreenCaptures"
+    state: directory
 
-- name: Save screenshots to the Downloads\Screen Captures
+- name: Save screenshots to the Downloads/ScreenCaptures
   community.general.osx_defaults:
     domain: com.apple.screencapture
     key: location
     type: string
-    value: ~/Downloads/Screen Captures
+    value: "{{ ansible_env.HOME }}/Downloads/ScreenCaptures"
     state: present
-  #when: (scl.value is None) or ((scl.value is not None) and not scl.value.endswith('/Downloads/Screen Captures'))
-  when: scl.value is not none and not scl.value.endswith('/Downloads/Screen Captures')
-    
+
 - name: Disable shadow in screenshots
   community.general.osx_defaults:
     domain: com.apple.screencapture
@@ -59,4 +54,3 @@
     type: int
     value: 2
     state: present
-

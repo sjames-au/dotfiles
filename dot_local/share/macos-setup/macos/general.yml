@@ -4,15 +4,7 @@
   shell: 'nvram SystemAudioVolume=" "'
   changed_when: false
   become: yes
-  when: ansible_become_pass is defined
-
-- name: Menu bar - disable transparency
-  community.general.osx_defaults:
-    domain: NSGlobalDomain
-    key: AppleEnableMenuBarTransparency
-    type: bool
-    value: false
-    state: present
+  when: become_active
 
 - name: Set sidebar size to medium
   community.general.osx_defaults:
@@ -30,12 +22,11 @@
     value: "Always"
     state: present
 
-- name: Disable smooth scrolling
-# defaults write NSGlobalDomain NSScrollAnimationEnabled -bool false
+- name: Enable smooth scrolling
   community.general.osx_defaults:
     domain: NSGlobalDomain
     key: NSScrollAnimationEnabled
-    type: bool  
+    type: bool
     value: true
     state: present
 
@@ -107,7 +98,7 @@
     type: string
     value: HostName
     state: present
-  when: ansible_become_pass is defined
+  when: become_active
   become: yes
 
 - name: Default to not relaunching apps after restart
@@ -118,14 +109,6 @@
     value: false
     state: present
 
-# DISABLED as I like to know when my system freezes
-# Restart automatically if the computer freezes
-# systemsetup -setrestartfreeze on
-
-# DISABLED as I am OK with my system sleeping by default
-# Never go into computer sleep mode
-# systemsetup -setcomputersleep Off > /dev/null
-
 - name: Check for software updates daily, not just once per week (Requires super user)
   community.general.osx_defaults:
     domain: /Library/Preferences/com.apple.SoftwareUpdate.plist
@@ -133,7 +116,7 @@
     type: int
     value: 1
     state: present
-  when: ansible_become_pass is defined
+  when: become_active
   become: yes
 
 - name: Automatically Install MacOS updates (Requires super user)
@@ -143,7 +126,7 @@
     type: bool
     value: true
     state: present
-  when: ansible_become_pass is defined
+  when: become_active
   become: yes
 
 - name: Automatically check for updates (Requires super user)
@@ -153,7 +136,7 @@
     type: bool
     value: true
     state: present
-  when: ansible_become_pass is defined
+  when: become_active
   become: yes
 
 - name: Automatically download updates (Requires super user)
@@ -164,7 +147,7 @@
     value: true
     state: present
   become: yes
-  when: ansible_become_pass is defined
+  when: become_active
 
 - name: Install critical updates (Requires super user)
   community.general.osx_defaults:
@@ -174,7 +157,7 @@
     value: true
     state: present
   become: yes
-  when: ansible_become_pass is defined
+  when: become_active
 
 - name: Automatically install updates for security controls e.g. GateKeeper (Requires super user)
   community.general.osx_defaults:
@@ -184,7 +167,7 @@
     value: true
     state: present
   become: yes
-  when: ansible_become_pass is defined
+  when: become_active
 
 - name: App Store - Enable Automatic updates (Requires super user)
   community.general.osx_defaults:
@@ -194,5 +177,4 @@
     value: true
     state: present
   become: yes
-  when: ansible_become_pass is defined
-
+  when: become_active

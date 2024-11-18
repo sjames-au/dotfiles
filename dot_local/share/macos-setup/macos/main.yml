@@ -18,8 +18,8 @@
 - name: MacOS Configure dock, dash, and hotcorners
   ansible.builtin.include_tasks: macos/ddh.yml
 
-#- name: MacOS Configure Safari
-#  ansible.builtin.include_tasks: macos/safari.yml
+- name: MacOS Configure Safari
+  ansible.builtin.include_tasks: macos/safari.yml
 
 - name: MacOS Configure Mail
   ansible.builtin.include_tasks: macos/mail.yml

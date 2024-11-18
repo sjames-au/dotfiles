@@ -1,6 +1,5 @@
-
 ###############################################################################
-# Dock, Dashboard, and hot corners                                            #
+# Dock and hot corners                                            #
 ###############################################################################
 
 - name: Dock - Enable highlight hover effect for the grid view of a stack (Dock)
@@ -115,7 +114,6 @@
 #  4: Desktop
 #  5: Start screen saver
 #  6: Disable screen saver
-#  7: Dashboard
 # 10: Put display to sleep
 # 11: Launchpad
 # 12: Notification Center
@@ -195,7 +193,3 @@
 - ansible.builtin.include_tasks: restart_process.yml
   vars:
     app_name: Dock
-
-- ansible.builtin.include_tasks: restart_process.yml
-  vars:
-    app_name: Dashboard
