@@ -27,49 +27,10 @@ Once Kitty is installed, you will also need to add the above permissions for Kit
    ~/bin/chezmoi init --apply https://github.com/your_username/dotfiles.git
    ```
 
-### Configuration Details
-
-- **Zsh Configuration:**
-
-  - Located in `dot_zshrc`
-  - Includes settings for Oh My Zsh, plugins, and aliases
-
-- **Neovim Configuration:**
-
-  - Located in `init.lua`
-  - Uses `lazy.nvim` for plugin management
-  - Includes various plugins for enhanced functionality
-
-- **macOS Setup:**
-  - Managed using Ansible playbooks in `macos-setup`
-  - Configures general macOS settings, hardware, screen, finder, dock, and more
-
-### Additional Information
-
-- **Neovim Plugins:**
-
-  - Includes plugins like `tpope/vim-fugitive`, `github/copilot.vim`, `nvim-telescope/telescope.nvim`, and more
-  - Detailed configurations in `init.lua`
-
-- **Homebrew Packages:**
-  - Listed in `dot_Brewfile.tmpl`
-  - Includes tools like `chezmoi`, `kitty`, `1password`, `starship`, `fzf`, `neovim`, and more
-
 ### Post Installation
 
-Start Neovim with:
-
-```sh
-nvim
-```
-
-Use `:Lazy` within Neovim to view the current plugin status.
-
-### Recommended Steps
-
-It is recommended to fork this repository to your own GitHub account so that you can customize it further as per your needs.
-
-For more information on extending and exploring Neovim, refer to the [Effective Neovim: Instant IDE](https://youtu.be/stqUbv-5u2s) video.
+- Start Neovim and use `:Lazy` within Neovim to view the current plugin status.
+- Start Alt-Tab and configure permissions, it will prompt for the correct ones.
 
 ## License
 
