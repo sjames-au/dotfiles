@@ -16,6 +16,7 @@ plugins=(
   autoupdate
   thefuck
   zsh-autosuggestions
+  chezmoi
 )
 
 
@@ -26,7 +27,7 @@ source $ZSH/oh-my-zsh.sh
 # Completions not otherwise available
  eval "$(op completion zsh)"; compdef _op op
 
-# General Config 
+# General Config
 alias vi=nvim
 alias vim=nvim
 
@@ -35,7 +36,7 @@ export EDITOR=nvim
 # Development tooling
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
-# Prompt 
+# Prompt
 eval "$(starship init zsh)"
 
 # This should be last in the zshrc
