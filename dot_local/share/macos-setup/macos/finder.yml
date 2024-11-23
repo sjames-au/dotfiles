@@ -99,6 +99,22 @@
     value: true
     state: present
 
+- name: Finder - Keep folders ontop when sorting by name
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: _FXSortFoldersFirst
+    type: bool
+    value: true
+    state: present
+
+- name: Finder - Keep folders ontop on the Desktop
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: _FXSortFoldersFirstOnDesktop
+    type: bool
+    value: true
+    state: present
+
 - name: Finder - When performing a search, search the current folder by default
   community.general.osx_defaults:
     domain: com.apple.finder
