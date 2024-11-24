@@ -71,7 +71,7 @@
     value: false
     state: present
 
-- name: Safari - Enable the Develop menu and the Web Inspector in Safari [1]
+- name: Safari - Enable the Develop menu
   community.general.osx_defaults:
     domain: com.apple.Safari
     key: IncludeDevelopMenu
@@ -79,7 +79,23 @@
     value: true
     state: present
 
-- name: Safari - Enable the Develop menu and the Web Inspector in Safari [2]
+- name: Safari - Enable the Developer Menu Visibility
+  community.general.osx_defaults:
+    domain: com.apple.Safari
+    key: DeveloperMenuVisibility
+    type: bool
+    value: true
+    state: present
+
+- name: Safari - Enable the Develop menu in Safari Sandboxes
+  community.general.osx_defaults:
+    domain: com.apple.Safari.SandboxBroker
+    key: ShowDevelopMenu
+    type: bool
+    value: true
+    state: present
+
+- name: Safari - Enable the Develop Menu WebKit Extras Key 1
   community.general.osx_defaults:
     domain: com.apple.Safari
     key: WebKitDeveloperExtrasEnabledPreferenceKey
@@ -87,12 +103,28 @@
     value: true
     state: present
 
-- name: Safari - Enable the Develop menu and the Web Inspector in Safari [3]
+- name: Safari - Enable the Develop Menu Extras
   community.general.osx_defaults:
     domain: com.apple.Safari
-    key: com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled
+    key: WebKitPreferences.developerExtrasEnabled
     type: bool
     value: true
+    state: present
+
+- name: Safari - Enable the Developer Preferences
+  community.general.osx_defaults:
+    domain: com.apple.Safari
+    key: DeveloperPreferences
+    type: int
+    value: 836
+    state: present
+
+- name: Safari - Enable the Developer Preferences
+  community.general.osx_defaults:
+    domain: com.apple.Safari
+    key: WebFeatureFlagSettings
+    type: int
+    value: 836
     state: present
 
 - name: Safari - Add a context menu item for showing the Web Inspector in web views
