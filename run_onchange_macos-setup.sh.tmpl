@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Macos-setup hash: {{ output "sh" "-c" "find -H ~/.local/share/macos-setup \\( -type f -or -type l \\) -exec sha256sum {} \\; | sha256sum" }}
+
+
+echo "Updating MacOS Configurqation."
+ansible-playbook $HOME/.local/share/macos-setup/main.yml --ask-become-pass
