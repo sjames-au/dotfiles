@@ -3,7 +3,7 @@
 - name: Turn system boot sound off (Requires super user)
   shell: 'nvram SystemAudioVolume=" "'
   changed_when: false
-  become: yes
+  become: true
   when: become_active
 
 - name: Set sidebar size to medium
@@ -99,7 +99,7 @@
     value: HostName
     state: present
   when: become_active
-  become: yes
+  become: true
 
 - name: Default to not relaunching apps after restart
   community.general.osx_defaults:
@@ -117,7 +117,7 @@
     value: 1
     state: present
   when: become_active
-  become: yes
+  become: true
 
 - name: Automatically Install MacOS updates (Requires super user)
   community.general.osx_defaults:
@@ -127,7 +127,7 @@
     value: true
     state: present
   when: become_active
-  become: yes
+  become: true
 
 - name: Automatically check for updates (Requires super user)
   community.general.osx_defaults:
@@ -137,7 +137,7 @@
     value: true
     state: present
   when: become_active
-  become: yes
+  become: true
 
 - name: Automatically download updates (Requires super user)
   community.general.osx_defaults:
@@ -146,7 +146,7 @@
     type: bool
     value: true
     state: present
-  become: yes
+  become: true
   when: become_active
 
 - name: Install critical updates (Requires super user)
@@ -156,7 +156,7 @@
     type: bool
     value: true
     state: present
-  become: yes
+  become: true
   when: become_active
 
 - name: Automatically install updates for security controls e.g. GateKeeper (Requires super user)
@@ -166,7 +166,7 @@
     type: bool
     value: true
     state: present
-  become: yes
+  become: true
   when: become_active
 
 - name: App Store - Enable Automatic updates (Requires super user)
@@ -176,5 +176,5 @@
     type: bool
     value: true
     state: present
-  become: yes
+  become: true
   when: become_active

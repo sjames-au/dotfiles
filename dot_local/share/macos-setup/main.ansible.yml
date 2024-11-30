@@ -5,14 +5,14 @@
   gather_facts: true
   tasks:
     - name: Check if become is working
-      command: whoami
-      become: yes
+      ansible.builtin.command: whoami
+      become: true
       register: become_check
-      ignore_errors: yes
+      ignore_errors: true
       failed_when: false
       changed_when: false
     - name: Set variable for become usage
-      set_fact:
+      ansible.builtin.set_fact:
         become_active: "{{ become_check.stdout | default('') == 'root' }}"
     - name: Import macOS settings tasks
-      import_tasks: macos/main.yml
+      ansible.builtin.import_tasks: macos/main.ansible.yml
