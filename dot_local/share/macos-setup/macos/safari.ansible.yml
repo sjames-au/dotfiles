@@ -47,13 +47,13 @@
 
 # Useful until you hit backspace on a long form and lose everything :(
 # Don't allow hitting the Backspace key to go to the previous page in history
-#- name: Safari - Don't allow hitting the Backspace key to go to the previous page in history
-#  community.general.osx_defaults:
-#    domain: com.apple.Safari
-#    key: com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled
-#    type: bool
-#    value: false
-#    state: present
+- name: Safari - Don't allow hitting the Backspace key to go to the previous page in history
+  community.general.osx_defaults:
+    domain: com.apple.Safari
+    key: com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled
+    type: bool
+    value: false
+    state: present
 
 - name: Safari - Enable Safari’s debug menu
   community.general.osx_defaults:

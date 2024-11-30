@@ -22,6 +22,7 @@
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/Downloads/ScreenCaptures"
     state: directory
+    mode: '0755'
 
 - name: Save screenshots to the Downloads/ScreenCaptures
   community.general.osx_defaults:

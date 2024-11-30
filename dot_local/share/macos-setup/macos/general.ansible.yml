@@ -1,7 +1,7 @@
 ---
 # General MacOS settings
 - name: Turn system boot sound off (Requires super user)
-  shell: 'nvram SystemAudioVolume=" "'
+  ansible.builtin.command: 'nvram SystemAudioVolume=" "'
   changed_when: false
   become: true
   when: become_active

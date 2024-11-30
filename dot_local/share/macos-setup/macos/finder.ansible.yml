@@ -212,9 +212,10 @@
     state: present
 
 - name: Unhide the ~/Library folder
-  shell: "chflags nohidden ~/Library"
+  ansible.builtin.command: "chflags nohidden ~/Library"
   changed_when: false
 
-- ansible.builtin.include_tasks: restart_process.ansible.yml
+- name: Restart Finder process
+  ansible.builtin.include_tasks: restart_process.ansible.yml
   vars:
     app_name: Finder

@@ -26,13 +26,14 @@
 # Ansible osx_defaults module does not support dict-add, so we use the command instead
 # Check if the keyboard shortcut ⌘ + Enter to send an email in Mail.app is already set
 - name: Mail - Get existing keyboard shortcuts
-  command: defaults read com.apple.mail NSUserKeyEquivalents
+  ansible.builtin.command: defaults read com.apple.mail NSUserKeyEquivalents
   register: mail_shortcuts
-  ignore_errors: yes
+  ignore_errors: true
   failed_when: false
   changed_when: false
 
 # Add the keyboard shortcut ⌘ + Enter to send an email in Mail.app if not already set
 - name: Mail - Add keyboard shortcut ⌘ + Enter to send an email in Mail.app
-  command: defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" "@\\U21a9"
+  ansible.builtin.command: defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" "@\\U21a9"
   when: "'Send' not in mail_shortcuts.stdout"
+  changed_when: true

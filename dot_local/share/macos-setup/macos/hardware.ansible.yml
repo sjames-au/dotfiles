@@ -2,7 +2,7 @@
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
 
-- name: enable tap to click on trackpad
+- name: Enable tap to click on trackpad
   community.general.osx_defaults:
     domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
     key: Clicking
@@ -10,7 +10,7 @@
     value: 1
     state: present
 
-- name: enable tap to click on mouse for user
+- name: Enable tap to click on mouse for user
   community.general.osx_defaults:
     host: currenthost
     domain: com.apple.AppleMultitouchMouse
@@ -19,7 +19,7 @@
     value: TwoButton
     state: present
 
-- name: enable one finger double tap on mouse for use
+- name: Enable one finger double tap on mouse for use
   community.general.osx_defaults:
     host: currenthost
     domain: com.apple.AppleMultitouchMouse
@@ -28,7 +28,7 @@
     value: 1
     state: present
 
-- name: enable tap to click on mouse login screen
+- name: Enable tap to click on mouse login screen
   community.general.osx_defaults:
     host: currenthost
     domain: NSGlobalDomain
@@ -150,9 +150,9 @@
     state: present
 
 - name: Set Time Zone
-  shell: 'systemsetup -settimezone "Australia/Melbourne" > /dev/null'
+  ansible.builtin.shell: 'systemsetup -settimezone "Australia/Melbourne" > /dev/null'
   changed_when: false
-  become: yes
+  become: true
   when: become_active
 
 - name: Enable auto-correct

@@ -3,7 +3,7 @@
 ###############################################################################
 
 - name: Dock - Enable highlight hover effect for the grid view of a stack (Dock)
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: mouse-over-hilite-stack
     type: bool
@@ -11,7 +11,7 @@
     state: present
 
 - name: Dock - Set the icon size of Dock items to 36 pixels
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: tilesize
     type: int
@@ -19,7 +19,7 @@
     state: present
 
 - name: Dock - Enable spring loading for all Dock items
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: enable-spring-load-actions-on-all-items
     type: bool
@@ -27,7 +27,7 @@
     state: present
 
 - name: Dock - Show indicator lights for open applications in the Dock
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: show-process-indicators
     type: bool
@@ -35,7 +35,7 @@
     state: present
 
 - name: Dock - Clear out persistent-apps
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: persistent-apps
     type: array
@@ -43,7 +43,7 @@
     state: present
 
 - name: Dock - Remove persistent-apps
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: persistent-apps
     type: array
@@ -56,7 +56,7 @@
 # defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}'
 
 - name: Dock - Don’t animate opening applications from the Dock
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: launchanim
     type: bool
@@ -64,7 +64,7 @@
     state: present
 
 - name: Dock - Remove the auto-hiding Dock delay
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: autohide-delay
     type: float
@@ -72,7 +72,7 @@
     state: present
 
 - name: Dock - Remove the animation when hiding/showing the Dock
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: autohide-time-modifier
     type: float
@@ -80,7 +80,7 @@
     state: present
 
 - name: Dock - Automatically hide and show the Dock
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: autohide
     type: bool
@@ -88,7 +88,7 @@
     state: present
 
 - name: Dock - Disable Dock magnification
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: magnification
     type: bool
@@ -96,7 +96,7 @@
     state: present
 
 - name: Dock - Make Dock icons of hidden applications translucent
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: showhidden
     type: bool
@@ -119,7 +119,7 @@
 # 12: Notification Center
 
 - name: Hot Corners - Top Left Action (None)
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: wvous-tl-corner
     type: int
@@ -127,7 +127,7 @@
     state: present
 
 - name: Hot Corners - Top Left Modifier (None)
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: wvous-tl-modifier
     type: int
@@ -135,7 +135,7 @@
     state: present
 
 - name: Hot Corners - Top Right Action (Show Desktop)
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: wvous-tr-corner
     type: int
@@ -143,7 +143,7 @@
     state: present
 
 - name: Hot Corners - Top Right Modifier (None)
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: wvous-tr-modifier
     type: int
@@ -151,7 +151,7 @@
     state: present
 
 - name: Hot Corners - Bottom Left Action (Start Screen Saver/Lock)
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: wvous-bl-corner
     type: int
@@ -159,7 +159,7 @@
     state: present
 
 - name: Hot Corners - Bottom Left Modifier (None)
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: wvous-bl-modifier
     type: int
@@ -167,7 +167,7 @@
     state: present
 
 - name: Hot Corners - Bottom Right Action (Disable Screen Saver)
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: wvous-br-corner
     type: int
@@ -175,7 +175,7 @@
     state: present
 
 - name: Hot Corners - Bottom Right Modifier (None)
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.dock
     key: wvous-br-modifier
     type: int
@@ -183,13 +183,14 @@
     state: present
 
 - name: Window Manager - disable click to reveal desktop
-  osx_defaults:
+  community.general.osx_defaults:
     domain: com.apple.WindowManager
     key: EnableStandardClickToShowDesktop
     type: bool
     value: false
     state: present
 
-- ansible.builtin.include_tasks: restart_process.ansible.yml
+- name: Restart Dock process
+  ansible.builtin.include_tasks: restart_process.ansible.yml
   vars:
     app_name: Dock
