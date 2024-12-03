@@ -22,3 +22,11 @@
     type = "git-repo"
     url = "https://github.com/mass8326/zsh-chezmoi.git"
     exact = true
+[".oh-my-zsh/custom/plugins/zsh-fzf-history-search"]
+    type = "git-repo"
+    url = "https://github.com/joshskidmore/zsh-fzf-history-search"
+    exact = true
+[".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+    type = "git-repo"
+    url = "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+    exact = true

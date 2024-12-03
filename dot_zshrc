@@ -17,6 +17,8 @@ plugins=(
   thefuck
   zsh-autosuggestions
   chezmoi
+  zsh-fzf-history-search
+  zsh-syntax-highlighting
 )
 
 
@@ -38,6 +40,3 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 # Prompt
 eval "$(starship init zsh)"
-
-# This should be last in the zshrc
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
