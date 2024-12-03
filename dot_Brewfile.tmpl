@@ -1,25 +1,33 @@
 brew "chezmoi"
 
-# terminal and preferred font
+# Development
+{{- if eq .developer "true" }}
+# terminal/shell/font
 cask "font-intone-mono-nerd-font"
 cask "kitty"
-cask "1password"
-# Shell support
 brew "starship"
 brew "fzf"
 brew "thefuck"
+# neovim
 brew "node" # for ansible lsp/neovim
 brew "neovim"
 brew "ripgrep"
 brew "mise"
-brew "zsh-syntax-highlighting"
-cask "1password-cli"
-
-cask "visual-studio-code"
-
-
-cask "alt-tab"
-
-brew "ansible"
 brew "lazygit"
+{{ end }}
+
+{{- if eq .personal "true" }}
+# Personal Apps
+cask "alt-tab"
+cask "1password"
+{{- end }}
+
+{{- if (and (eq .personal "true") (eq .developer "true")) }}
+cask "1password-cli"
 cask "docker" # Docker Desktop
+cask "visual-studio-code"
+{{ end }}
+
+{{- if eq .macosSetup "true" }}
+brew "ansible"
+{{ end }}
