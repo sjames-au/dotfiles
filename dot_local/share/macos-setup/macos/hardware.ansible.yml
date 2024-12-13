@@ -122,7 +122,7 @@
     domain: NSGlobalDomain
     key: AppleLanguages
     type: array
-    value: [en]
+    value: [en-AU]
     state: present
 
 - name: Set locale
