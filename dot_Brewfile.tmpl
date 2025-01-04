@@ -20,12 +20,15 @@ brew "lazygit"
 # Personal Apps
 cask "alt-tab"
 cask "1password"
+cask "chatgpt"
 {{- end }}
 
 {{- if (and (eq .personal "true") (eq .developer "true")) }}
 cask "1password-cli"
 cask "docker" # Docker Desktop
 cask "visual-studio-code"
+cask "chatgpt"
+cask "telegram"
 {{ end }}
 
 {{- if eq .macosSetup "true" }}
