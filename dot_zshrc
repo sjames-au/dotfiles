@@ -19,6 +19,8 @@ plugins=(
   chezmoi
   zsh-fzf-history-search
   zsh-syntax-highlighting
+  poetry-env
+  poetry
 )
 
 
@@ -27,7 +29,7 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 source $ZSH/oh-my-zsh.sh
 
 # Completions not otherwise available
- eval "$(op completion zsh)"; compdef _op op
+eval "$(op completion zsh)"; compdef _op op
 
 # General Config
 alias vi=nvim

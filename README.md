@@ -30,10 +30,12 @@ Once Kitty is installed, you will also need to add the above permissions for Kit
    ```
 
 ### Post Installation
+
 - Open 1Password and login
 - Start Neovim and use `:Lazy` within Neovim to view the current plugin status.
 - Start Alt-Tab and configure permissions, it will prompt for the correct ones.
 - Enable icloud Desktop/Document synchronisation Settings->Apple Account->iCloud->Drive->Desktop and Document Folder
+
 ## License
 
 This repository is licensed under the MIT License. See the `LICENSE` file for more details.
