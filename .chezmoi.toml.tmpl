@@ -3,9 +3,10 @@ mode = "symlink"
 # {{ $personal := promptBool "Will this machine need personal apps" }}
 # {{ $developer := promptBool "Will this machine be used for development" }}
 # {{ $macosSetup := promptBool "Should macos be configured" }}
+# {{ $work := promptBool "Is this a work machine?" }}
 
 [data]
   personal = "{{ $personal }}"
   developer = "{{ $developer }}"
   macosSetup = "{{ $macosSetup }}"
-
+  work = "{{$ work}}"
