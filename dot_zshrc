@@ -21,6 +21,7 @@ plugins=(
   zsh-syntax-highlighting
   poetry-env
   poetry
+  mise
 )
 
 
@@ -37,8 +38,8 @@ alias vim=nvim
 
 export EDITOR=nvim
 
-# Development tooling
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+# Extra paths
+export PATH="$PATH:/Users/stewart/.local/bin" # Pipx
 
 # Prompt
 eval "$(starship init zsh)"
