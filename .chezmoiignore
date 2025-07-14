@@ -1,0 +1,5 @@
+README.md
+# Exclude LazyVim, keep my customisations
+.config/nvim/*
+!.config/nvim/lua/custom
+!.config/nvim/init.lua

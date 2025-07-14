@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Clone LazyVim only if it doesn't already exist
+if [ ! -d "$HOME/.config/nvim" ]; then
+  echo "Cloning LazyVim starter..."
+  git clone https://github.com/LazyVim/starter.git "$HOME/.config/nvim"
+fi
