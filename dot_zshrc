@@ -48,6 +48,11 @@ if command -v op >/dev/null 2>&1; then
 fi
 #compdef aws=awscompdef _aws=aws
 
+# Auto activate mise environments
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate)"
+fi
+
 export EDITOR=nvim
 export PYTHONSTARTUP=~/.pythonrc.py
 # Extra paths
