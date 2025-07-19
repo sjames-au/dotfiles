@@ -13,6 +13,11 @@ diverged = "<>"
 renamed = "r"
 deleted = "x"
 
+[env_var.MISE_SHELL]
+format = "[$symbol]($style)"
+symbol = "✦MA✦ "
+style = "bold green"
+
 [aws]
 symbol = "aws "
 
