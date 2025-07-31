@@ -45,14 +45,14 @@ The system uses four boolean variables to determine machine configuration:
 - `personal` - Personal applications and settings
 - `developer` - Development tools and environment
 - `macosSetup` - System configuration via Ansible
-- `work` - Work-specific configurations
+- `local` - Local configurations for local or specific needs
 
 ### Profile Combinations
 Supported profile combinations:
 - **Personal only**: Basic personal machine with minimal tools
 - **Developer only**: Development-focused machine without personal apps
 - **Personal + Developer**: Full-featured personal development machine
-- **Work variations**: Any combination with work-specific additions
+- **Local variations**: Any combination with local-specific additions
 
 ### Template Logic
 Templates use Go template syntax for conditional configuration:

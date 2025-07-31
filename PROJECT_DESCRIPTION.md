@@ -7,15 +7,14 @@ This repository contains a comprehensive macOS dotfiles and system configuration
 ## Main Objectives
 
 - **Automated Environment Setup**: One-command installation and configuration of complete macOS development and personal environments
-- **Flexible Machine Profiling**: Support for various machine types (personal, development, work, custom) and their combinations
+- **Flexible Machine Profiling**: Support for various machine types (personal, development, local) and their combinations
 - **Consistent Configuration**: Maintain identical configurations across multiple machines while allowing profile-specific customizations
-- **Security-First Approach**: Integrated 1Password CLI for secure credential management
 
 ## Key Features
 
 ### Intelligent Configuration Profiles
 - Interactive setup prompts determine machine type and requirements
-- Supports combinations: personal, development, work, custom, and mixed profiles
+- Supports combinations: personal, development, custom, and mixed profiles
 - Conditional package installation and configuration based on selected profiles
 
 ### Automated System Configuration
@@ -31,7 +30,7 @@ This repository contains a comprehensive macOS dotfiles and system configuration
 
 ### Package Management
 - Template-driven Brewfile with conditional package installation
-- Separate package sets for personal, development, and work environments
+- Separate package sets for personal, development, and local environments
 - Automatic dependency resolution and installation
 
 ### Security Integration
