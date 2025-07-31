@@ -1,4 +1,25 @@
 #!/bin/bash
 
-# .Brewfile hash: {{ include "dot_Brewfile.tmpl" | sha256sum }}
-brew bundle --global --no-lock
+# Always ensure Brewfile.local is present
+target="{{ joinPath .chezmoi.homeDir ".Brewfile.local" }}"
+if [ ! -f "$target" ]; then
+  cat <<EOF > "$target"
+# Sample local Brewfile entries
+# brew "example-formula"
+# cask "example-cask"
+EOF
+
+  # Flush file to disk to ensure it's written before use
+  sync "$target"
+fi
+
+# Generate hash
+# .Brewfile hash: {{ include (joinPath .chezmoi.homeDir ".Brewfile.local") | sha256sum }}
+# .Brewfile.local hash: {{ include (joinPath .chezmoi.homeDir ".Brewfile.local") | sha256sum }}
+
+# Proceed with Homebrew
+# Print a message in green to inform the user
+echo -e "\033[1;32mUpdating global Homebrew packages...\033[0m"
+brew bundle --global
+echo -e "\033[1;32mUpdating local Homebrew packages...\033[0m"
+brew bundle --file="{{ joinPath .chezmoi.homeDir ".Brewfile.local" }}"

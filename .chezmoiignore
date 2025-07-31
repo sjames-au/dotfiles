@@ -3,3 +3,5 @@ README.md
 .config/nvim/*
 !.config/nvim/lua/custom
 !.config/nvim/init.lua
+
+~/.Brewfile.local
