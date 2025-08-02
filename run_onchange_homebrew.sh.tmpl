@@ -14,8 +14,12 @@ EOF
 fi
 
 # Generate hash
-# .Brewfile hash: {{ include (joinPath .chezmoi.homeDir ".Brewfile.local") | sha256sum }}
-# .Brewfile.local hash: {{ include (joinPath .chezmoi.homeDir ".Brewfile.local") | sha256sum }}
+{{- $brewfileLocal := joinPath .chezmoi.homeDir ".Brewfile.local" }}
+{{- if stat $brewfileLocal }}
+# .Brewfile.local hash: {{ include $brewfileLocal | sha256sum }}
+{{- else }}
+# .Brewfile.local does not exist yet - will be created by this script
+{{- end }}
 
 # Proceed with Homebrew
 # Print a message in green to inform the user
